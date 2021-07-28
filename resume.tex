@@ -1,96 +1,121 @@
 %!TEX TS-program = xelatex
-\documentclass[a4paper, extended]{comcv}
+
+% use only XeLaTeX or LuaLaTeX to compile
+\documentclass[a4paper]{comcv}
 
 \usepackage[english]{babel}
 
-\title{Avinal's CV}
-\fullname{Avinal}{Kumar}{}
-\cvtitle{Student, Programmer, Technical Writer, Open Source Developer}
-\website{https://avinal.is-a.dev}{avinal.is-a.dev}
-\email{185067@nith.ac.in}
-\github{https://github.com/avinal}{GitHub}
-\linkedin{https://www.linkedin.com/in/avinal}{LinkedIn}
-\currentdate{Jan 2021}
+\title{Adam Neulight Resume}
+\fullname{Adam}{Neulight}{}
+\cvtitle{A Computer Engineering student seeking an internship for Fall 2021.}
+\smallskip
+\phone{(703) 216-1280}{(703) 216-1280}
+\email{adamneulight@mail.rit.edu}
+\github{https://github.com/addamm1}{addamm1}
+\linkedin{https://www.linkedin.com/in/adamneulight/}{adamneulight}
+\currentdate{, 19 July 2021}
 
 \begin{document}
-\section{Experience}
-\combosection{Script Winter of Code}{Participant \href{https://github.com/harshcasper/rotten-scripts}{Rotten-Scripts}}{Dec 2020-Present}{
-  \begin{tightlist}
-    \item Proposed new sections for PowerShell Scripts
-    \item Proposed and created structure of website for the project
-    \item Added Automatic Pull Request Assigning Action
-  \end{tightlist}
-}
 
-\combosection{Google Season of Docs 2020}{Technical Writer, VideoLAN}{Sep 2020-Nov 2020}{
-  \begin{tightlist}
-    \item Created \href{https://code.videolan.org/docs/vlc-android-user}{VLC for Android User Documentation}
-    \item Proposed a new structure for the documentation (Sphinx, reStructuredText)
-    \item Writing user-friendly and well researched content for technical and non-technical users.
-    \item Proper amount and placement of screenshots and other media for appealing and informative docs.
-    \item Optimized web pages for major form factors and ease of navigation
-  \end{tightlist}
-}
-
-\section{Projects}
-\combosection{\href{https://github.com/avinal/Profile-Readme-Wakatime}{Automated Coding Activity GitHub Action}}{Python, Docker, GitHub Actions, Bash Scripting}{}{
-  \begin{tightlist}
-    \item Automatically generates WakaTime Coding Activity graph that can be embedded in Readme(s) and websites.
-    \item Uses WakaTime API to gather coding activity of last seven days as JSON.
-    \item The data is then processes and converted to a SVG graph using matplotlib
-  \end{tightlist}
-}
-
-\combosection{\href{https://github.com/avinal/Binary-Search-Tree-Travarsal}{Binary Search Tree Traversal Animator}}{Java, Gradle, Swing, Multi-threading}{}{
-  \begin{tightlist}
-    \item Creates Binary Search Tree node-by-node and draws the path taken by the traversals.
-    \item Visualizes Inorder, Preorder, Postorder and Levelorder using multi-threading and recursion.
-  \end{tightlist}
-}
-
-\combosection{\href{https://github.com/avinal/FITS-Image}{Astronomical Image Extraction from FITS File}}{C++, CFITSIO, Boost.GIL, CMake}{}{Flexible Image Transport System has been used for decades to store and transfer astronomical images and needs specialized software to view them, this project extract those images as JPEG or PNG that can be viewed by common image viewer.}
-\vspace{\topsep}
-\combosection{Open Source Contributions}{\href{https://github.com/avinal}{GitHub}, \href{https://code.videolan.org/avinal}{GitLab}}{}{Contributed to organizations: GitHub, Jupyter-XEUS, JetBrains, Embox, VideoLAN}
-
-\vspace{\topsep}
-\section{Skills}
-\combosection{Programming}{}{}{
-  \begin{tightlist}
-    \item Data Structures and Algorithms
-    \item C/C++ (2+ years) - STL, Pointers, Templates, OOP, API development, Boost C++, Qt(basic)
-    \item Java (1+ years) - Collections, Generic Programming, Basic Multi-threading
-    \item Basic - SQL, MATLAB, HTML, CSS, JavaScript, Python
-  \end{tightlist}
-}
-
-\combosection{Tools/Others}{}{}{
-  \begin{tightlist}
-    \item Scripting(Bash, Python), git, GitHub Actions, CI/CD, Linux/Unix, Windows, Windows Subsystem for Linux
-    \item \LaTeX, Visual Studio Code, CLion, IntelliJ IDEA, Vim, Visual Studio, Word, PowerPoint, Excel
-  \end{tightlist}
-}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Education %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \section{Education}
-\combosection{National Institute of Technology, Hamirpur}{B.Tech in Computer Sci. and Eng.}{2018-Present}{CGPA till 5\textsuperscript{th} semester - 8.39
+\combosection{Rochester Institute of Technology}{B.S. in Computer Engineering}{August 2019 - May 2024}{\smallskip}
 
-  \ifextended
-    Courses - Advanced Calculus, Statistics, Probability and Queuing Theory, Algorithm Design, Digital Logic Design, Database Management Systems, Data Structures, Operating Systems, Compiler Design, Computer Networks
-  \else
-  \fi
-  }
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Experience %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\vspace{\topsep}
-\combosection{The Coding School}{Quantum Computing}{Oct 2020-Present}{Grade 1\textsuperscript{st} semester - 99.32\%
+\section{Experience}
 
-Basic Quantum Mechanics and Quantum Computing}
-
-\vspace{\topsep}
-\section{Certifications}
-\combosection{Google IT Support Professional}{Coursera}{2020}{Computer Network, System Administration, Operating System, Cyber Security}
-\vspace{\topsep}
-\section{Others}
-\combosection{Computer Science Engineers' Society}{Coordinator}{2019-Present}{
-  Departmental Society of CSE NITH. Organizes Monthly Competitive Programming Contest and Bootcamp.
+%%%%%%%%%%%%%
+%Experience 1
+%%%%%%%%%%%%%
+\combosection{Home Depot}{Customer Service Associate}{June 2020 - August 2021}{
+\smallskip
+    \begin{tightlist}
+    \item Worked closely with managers and other associates to ensure customer service is being maintained and that customers issues are being solved.
+    \item Maintained a working knowledge of most products in the store and their locations.
+    \end{tightlist}
 }
+
+% \vspace{\topsep}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Projects %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Projects}
+
+%%%%%%%%%%%%%
+%Project 1
+%%%%%%%%%%%%%
+
+\combosection{3D Printer Mods and Improvements}{Marlin Firmware, CAD Design}{July 2019 - Present}{}
+\smallskip
+    \begin{tightlist}
+        \item Designed and implemented a case for an SKR 1.4 mainboard and an LCD screen. The case is made to be detached from the printer but still wired by a tether connected to the printer via DIN terminals.
+        \item Implemented a direct drive extruder with an attached BLTouch bed leveling sensor along with a custom designed fan shroud for it.
+        \item Upgraded to dual Z motors in order to fix X gantry sag due to the heavier extruder assembly.
+\end{tightlist}
+
+%%%%%%%%%%%%%
+%Project 2
+%%%%%%%%%%%%%
+\combosection{Tethered Underwater ROV}{CAD Design, Python, 3D Printing}{February - April 2019}{}
+\vspace{\topsep}
+    \begin{tightlist}
+        \item Worked as part of a two man team in order to develop a final project for an engineering class in High School.
+        \item The ROV consisted of three brushless thrusters in order to control direction and altitude.
+        \item Contained within the robot is a 4 axis motion controlled gimbal with an attached camera and a live feed streamed back to the operator on the surface.
+        \item The tethering was completed using a waterproof armored ethernet cable using simple internet communications protocols between the raspberry pi on the ROV and the surface all programmed using Python.
+\end{tightlist}
+
+%%%%%%%%%%%%%
+%Project 3
+%%%%%%%%%%%%%
+
+\combosection{200 LED Sign}{Soldering, Electronics, C++}{January 2018}{}
+\vspace{\topsep}
+    \begin{tightlist}
+        \item Designed a 200 LED sign using off the shelf 3mm LED's, Perfboard, two 9 volt batteries, Maxim 7219 IC's, and an ATiny 85 microprocessor.
+        \item The sign was constructed using three large perfboard pieces with the led's spelling the name of my high school engineering teacher.
+        \item Each board was connected using a DIY pin header connector which transferred power and data to the LED drivers. This was all driven with an ATtiny 85 microprocessor running C++ arduino code.
+    \end{tightlist}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Skills %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Skills}
+\begin{itemize}
+    %Languages
+    \item {\bf{Languages: }}  {VHDL, Python, Java, C++, ARM Assembly, MIPS Assembly, MATLAB} 
+    
+    %Software
+    \item {\bf{Software: }} {Xilinx Vivado, LTSPICE, Pycharm, IntelliJ, Keil $\mu$Vision, Raspbian, Quartus II, ModelSim, Microsoft Office, Vim, Ubuntu}
+    
+    %Hardware
+    \item {\bf{Hardware: }}  {FRDM-KL05Z Board, Oscilloscopes, Breadboard / Circuitry, Digital Multi-meter, Waveform Generator, Raspberry pi, Arduino} 
+\end{itemize}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Organizations %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Extracurriculars}
+
+%%%%%%%%%%%%%
+%Organizations 1
+%%%%%%%%%%%%%
+\combosection{Computer Science House}{3D Administrator}{August 2019 – Present}{\href{https://csh.rit.edu/}{csh.rit.edu}}
+\vspace{\topsep}
+\begin{tightlist}
+    \item Computer Science House is a living and learning community with a helpful environment that emphasizes hands-on learning and projects outside of the classroom.
+	\item A 3D Print Administrator assists and educates other members on how to print 3D files effectively and taking care of 3D printers.
+\end{tightlist}
+
+%%%%%%%%%%%%%
+%Organizations 2
+%%%%%%%%%%%%%
+
+\combosection{Technology Student Association}{Member}{December 2018 - March 2019}{}
+\vspace{\topsep}
+\begin{tightlist}
+    \item Worked with a team of other young engineers to complete multiple engineering and technology related projects to compete against other teams in the state.
+\end{tightlist}
+
 
 \end{document}
