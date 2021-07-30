@@ -1,6 +1,7 @@
 %% comcv.cls
-%% Copyright 2021 Avinal Kumar
-%
+%% Copyright 2021 Avinal Kumar (https://github.com/avinal)
+% Check updated version at https://github.com/avinal/resume
+% 
 % This work may be distributed and/or modified under the
 % conditions of the LaTeX Project Public License, either version 1.3
 % of this license or any later version.
@@ -32,7 +33,6 @@
 \RequirePackage[usenames,dvipsnames]{xcolor} % custom colors
 \RequirePackage{fontspec} % custom fonts
 \RequirePackage{array}
-\RequirePackage{totpages} % counts total pages
 \RequirePackage{fancyhdr} % fancy header, footer
 \RequirePackage{titlesec} % formating sections, subsections
 \RequirePackage{hyperref} % for links and, please keep it as last package, add more packages above it
@@ -43,18 +43,18 @@
 \definecolor{gray}{HTML}{555555} % color gray
 \definecolor{lightgray}{HTML}{999999} % color light gray, a shade of gray
 \definecolor{black}{HTML}{000000} % color black, also gray just deeper
-\definecolor{coralpink}{HTML}{FF706C} % color coral pink, ever seen a real coral, huh 
+\definecolor{blue}{HTML}{0000ff} % color coral pink, ever seen a real coral, huh 
 
 % provide colors to your elements
 \colorlet{defaulttext}{black} % default text color
-\colorlet{regulartext}{gray} % regular text color
-\colorlet{headertext}{gray} % header text color
-\colorlet{linktext}{coralpink} % link text volor
+\colorlet{regulartext}{black} % regular text color
+\colorlet{headertext}{black} % header text color
+\colorlet{linktext}{blue} % link text volor
 \colorlet{lighttext}{lightgray} % light text color
 
 % hyperref options for generating pdf, metadata
 \hypersetup{
-    colorlinks=true,
+    colorlinks=false,
     allcolors=linktext
 }
 
@@ -97,10 +97,62 @@
     Color=headertext
 ]{Roboto-Medium.ttf}
 
+
+% Define an environment for cvhonor
+\newenvironment{cvhonors}{%
+  \vspace{\acvSectionContentTopSkip}
+  \vspace{-2mm}
+  \begin{center}
+    \setlength\tabcolsep{0pt}
+    \setlength{\extrarowheight}{0pt}
+    \begin{tabular*}{\textwidth}{@{\extracolsep{\fill}} C{1.5cm} L{\textwidth - 4.0cm} R{2.5cm}}
+}{%
+    \end{tabular*}
+  \end{center}
+}
+% Define a line of cv information(honor, award or something else)
+% Usage: \cvhonor{<position>}{<title>}{<location>}{<date>}
+\newcommand*{\cvhonor}[4]{%
+  \honordatestyle{#4} & \honorpositionstyle{#1}, \honortitlestyle{#2} & \honorlocationstyle{#3} \\
+}
+
+% Define an environment for cvskill
+\newenvironment{cvskills}{%
+  \vspace{\acvSectionContentTopSkip}
+  \vspace{-2.0mm}
+  \begin{center}
+    \setlength\tabcolsep{1ex}
+    \setlength{\extrarowheight}{0pt}
+    \begin{tabular*}{\textwidth}{@{\extracolsep{\fill}} r L{\textwidth * \real{0.9}}}
+}{%
+    \end{tabular*}
+  \end{center}
+}
+% Define a line of cv information(skill)
+% Usage: \cvskill{<type>}{<skillset>}
+\newcommand*{\cvskill}[2]{%
+	\skilltypestyle{#1} & \skillsetstyle{#2} \\
+}
+
+% Define an environment for cvitems(for cventry)
+\newenvironment{cvitems}{%
+  \vspace{-4.0mm}
+  \begin{justify}
+  \begin{itemize}[leftmargin=2ex, nosep, noitemsep]
+    \setlength{\parskip}{0pt}
+    \renewcommand{\labelitemi}{\bullet}
+}{%
+  \end{itemize}
+  \end{justify}
+  \vspace{-4.0mm}
+}
+
 % define document commands/variables
 \newcommand*{\fullname}[3]{\def\comcv@firstname{#1}\def\comcv@lastname{#2}\def\comcv@degree{#3}} % full name and degree
 
 \newcommand*{\cvtitle}[1]{\def\comcv@title{#1}} % title of the document
+
+\newcommand*{\phone}[2]{\def\comcv@phoneurl{#1}\def\comcv@phonetext{#2}} % phone
 
 \newcommand*{\email}[1]{\def\comcv@mailid{#1}} % email id and email text
 
@@ -110,7 +162,11 @@
 
 \newcommand*{\linkedin}[2]{\def\comcv@linkedinurl{#1}\def\comcv@linkedintext{#2}} % linkedin
 
+
+
 \newcommand\horbar[1][]{\noindent\makebox[\linewidth]{\color{gray}\rule{\paperwidth}{0.4pt}}} % unindented horizontal line
+
+
 
 % link colors
 \def\HyColor@@@@UseColor#1\@nil{\addfontfeatures{Color=linktext}}
@@ -148,7 +204,17 @@
         pdfauthor={\comcv@firstname~\comcv@lastname}, % author of the file
         pdftitle={\comcv@firstname~\comcv@lastname's Résumé}, % title for the generated pdf
     }
-
+    
+    \ifdefined\comcv@phoneurl
+    \ifx\comcv@phoneurl\empty
+        \def\comcv@phone{}
+    \else
+        \def\comcv@phone{\faPhone~\href{\comcv@phoneurl}{\comcv@phonetext}}
+    \fi
+    \else
+        \def\comcv@phone{}
+    \fi
+    
     \def\comcv@email{\faEnvelope~\href{mailto:\comcv@mailid}{\comcv@mailid}}
     
     \ifdefined\comcv@linkedinurl
@@ -180,6 +246,7 @@
     \else
         \def\comcv@website{}
     \fi
+    
 
     \begin{center}
         % define your header text size, color and format
@@ -191,7 +258,7 @@
 
         \ifdefined\comcv@title
         \ifx\comcv@title\empty
-            \large\light\comcv@email~~\comcv@website~~\comcv@github~~\comcv@linkedin
+            \large\light\comcv@phone~~\comcv@email~~\comcv@linkedin
             \vspace{-\topsep}
             \horbar
             \vspace{-\topsep}
@@ -200,16 +267,16 @@
             \vspace{-\topsep}
             \horbar
 
-            \comcv@email~~\comcv@website~~\comcv@github~~\comcv@linkedin
+            \comcv@phone~~\comcv@email~~\comcv@linkedin
             \vspace{-\topsep}
         \fi
         \else
-            \large\light\comcv@email~~\comcv@website~~\comcv@github~~\comcv@linkedin
+            \large\light\comcv@phone~~\comcv@email~~\comcv@linkedin
             \vspace{-\topsep}
             \horbar
             \vspace{-\topsep}
         \fi
-    
+        %  \comcv@website~~\comcv@github~ was removed from above between email and linkedin, add back in to allow website and github
     \end{center}
 }
 
@@ -222,7 +289,6 @@
     \pagestyle{fancy}
     \fancyhead{}
     \fancyfoot[C]{\footnotesize\light\comcv@firstname's Résumé, \comcv@date, \comcv@email} % footer text
-    \fancyfoot[R]{\raggedleft\footnotesize\comcv@page} % page number and page link
     \renewcommand{\headrulewidth}{0em}
     \setlength\footskip{\baselineskip}
 }
